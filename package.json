@@ -1,0 +1,68 @@
+{
+  "name": "dive-more-erp",
+  "private": true,
+  "version": "0.3.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc -b --pretty",
+    "test": "node --test tests/*.test.js server/tests/*.test.js",
+    "desktop:dev": "concurrently -k \"npm:dev\" \"wait-on http://127.0.0.1:5173 && cross-env DIVE_MORE_DEV_URL=http://127.0.0.1:5173 electron .\"",
+    "desktop:build": "npm run build && electron-builder --win nsis",
+    "server:dev": "npm --prefix server run dev",
+    "server:start": "npm --prefix server start"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "typescript": "5.7.3",
+    "vite": "5.4.14",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.divemore.erp",
+    "productName": "Dive More ERP",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Dive-More-ERP-Setup-${version}.${ext}",
+      "icon": "build/dive-more.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "installerIcon": "build/dive-more.ico",
+      "uninstallerIcon": "build/dive-more.ico",
+      "installerHeaderIcon": "build/dive-more.ico"
+    }
+  },
+  "main": "electron/main.cjs"
+}

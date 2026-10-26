@@ -1,0 +1,430 @@
+TAP version 13
+# Subtest: API QA: only intended business roles can create bookings
+ok 1 - API QA: only intended business roles can create bookings
+  ---
+  duration_ms: 1.20869
+  type: 'test'
+  ...
+# Subtest: API QA: base Sales booking passes required validations
+ok 2 - API QA: base Sales booking passes required validations
+  ---
+  duration_ms: 2.172339
+  type: 'test'
+  ...
+# Subtest: API QA: Sales cannot create a ticket under another employee email
+ok 3 - API QA: Sales cannot create a ticket under another employee email
+  ---
+  duration_ms: 0.380841
+  type: 'test'
+  ...
+# Subtest: API QA: Sales code and ticket prefix must belong to the authenticated Sales account
+ok 4 - API QA: Sales code and ticket prefix must belong to the authenticated Sales account
+  ---
+  duration_ms: 0.524813
+  type: 'test'
+  ...
+# Subtest: API QA: Sales must accept terms and retain a timestamp
+ok 5 - API QA: Sales must accept terms and retain a timestamp
+  ---
+  duration_ms: 0.418026
+  type: 'test'
+  ...
+# Subtest: API QA: malformed dates, times and ticket amounts are rejected
+ok 6 - API QA: malformed dates, times and ticket amounts are rejected
+  ---
+  duration_ms: 0.872995
+  type: 'test'
+  ...
+# Subtest: API QA: customer, service, optional details and hour limits are validated safely
+ok 7 - API QA: customer, service, optional details and hour limits are validated safely
+  ---
+  duration_ms: 0.589878
+  type: 'test'
+  ...
+# Subtest: API QA: passenger counts must be whole, non-negative and total at least one
+ok 8 - API QA: passenger counts must be whole, non-negative and total at least one
+  ---
+  duration_ms: 0.312921
+  type: 'test'
+  ...
+# Subtest: API QA: invalid payment rows and excessive payment row counts are rejected
+ok 9 - API QA: invalid payment rows and excessive payment row counts are rejected
+  ---
+  duration_ms: 0.681133
+  type: 'test'
+  ...
+# Subtest: API QA: Operations cannot call booking-create authorization even with a valid payload
+ok 10 - API QA: Operations cannot call booking-create authorization even with a valid payload
+  ---
+  duration_ms: 0.625071
+  type: 'test'
+  ...
+# Subtest: API QA: server ignores forged status/FX/verified payment/bonus/commission fields
+ok 11 - API QA: server ignores forged status/FX/verified payment/bonus/commission fields
+  ---
+  duration_ms: 0.941696
+  type: 'test'
+  ...
+# Subtest: API QA: missing or invalid trusted server exchange rates stop booking normalization
+ok 12 - API QA: missing or invalid trusted server exchange rates stop booking normalization
+  ---
+  duration_ms: 0.853748
+  type: 'test'
+  ...
+# Subtest: API QA: role-specific response strips Sales/Operations bonus and commission details
+ok 13 - API QA: role-specific response strips Sales/Operations bonus and commission details
+  ---
+  duration_ms: 0.356475
+  type: 'test'
+  ...
+# Subtest: API QA: Accountant/Accounting Manager see bonus but not commission; Finance Manager sees commission but not bonus
+ok 14 - API QA: Accountant/Accounting Manager see bonus but not commission; Finance Manager sees commission but not bonus
+  ---
+  duration_ms: 0.185904
+  type: 'test'
+  ...
+# Subtest: API QA: Owner/Admin update validator rejects mismatched IDs, malformed values and unsafe status changes
+ok 15 - API QA: Owner/Admin update validator rejects mismatched IDs, malformed values and unsafe status changes
+  ---
+  duration_ms: 0.479185
+  type: 'test'
+  ...
+# Subtest: API QA: generic update cannot change financial amounts or payment approval state
+ok 16 - API QA: generic update cannot change financial amounts or payment approval state
+  ---
+  duration_ms: 0.367671
+  type: 'test'
+  ...
+# Subtest: sales code is stable and normalized from the email local part
+ok 17 - sales code is stable and normalized from the email local part
+  ---
+  duration_ms: 1.200668
+  type: 'test'
+  ...
+# Subtest: demo serial allocation advances beyond saved IDs and avoids duplicate IDs
+ok 18 - demo serial allocation advances beyond saved IDs and avoids duplicate IDs
+  ---
+  duration_ms: 0.880806
+  type: 'test'
+  ...
+# Subtest: payments in different currencies are converted only to the ticket currency for balance calculation
+ok 19 - payments in different currencies are converted only to the ticket currency for balance calculation
+  ---
+  duration_ms: 0.246343
+  type: 'test'
+  ...
+# Subtest: finance-only services and details are blocked regardless of punctuation or case
+ok 20 - finance-only services and details are blocked regardless of punctuation or case
+  ---
+  duration_ms: 0.346681
+  type: 'test'
+  ...
+# Subtest: partial refunds reduce only the original payment selected
+ok 21 - partial refunds reduce only the original payment selected
+  ---
+  duration_ms: 0.515609
+  type: 'test'
+  ...
+# Subtest: legacy refunds with paymentIndex -1 cannot be refunded a second time
+ok 22 - legacy refunds with paymentIndex -1 cannot be refunded a second time
+  ---
+  duration_ms: 0.130082
+  type: 'test'
+  ...
+# Subtest: legacy refunded total is applied even when the old record has no refund history
+ok 23 - legacy refunded total is applied even when the old record has no refund history
+  ---
+  duration_ms: 0.196549
+  type: 'test'
+  ...
+# Subtest: refund totals stay in original currencies and include any legacy ticket-currency remainder
+ok 24 - refund totals stay in original currencies and include any legacy ticket-currency remainder
+  ---
+  duration_ms: 0.144973
+  type: 'test'
+  ...
+# Subtest: refund equivalents use the stored rate snapshot and exchange rates must be positive
+ok 25 - refund equivalents use the stored rate snapshot and exchange rates must be positive
+  ---
+  duration_ms: 0.287854
+  type: 'test'
+  ...
+# Subtest: a new Sales-reported payment is not finance-confirmed
+ok 26 - a new Sales-reported payment is not finance-confirmed
+  ---
+  duration_ms: 0.41422
+  type: 'test'
+  ...
+# Subtest: Finance can confirm a full reported EUR payment
+ok 27 - Finance can confirm a full reported EUR payment
+  ---
+  duration_ms: 0.427619
+  type: 'test'
+  ...
+# Subtest: partial Finance verification leaves only the residual unverified
+ok 28 - partial Finance verification leaves only the residual unverified
+  ---
+  duration_ms: 1.144415
+  type: 'test'
+  ...
+# Subtest: Finance cannot confirm more than the unverified remainder
+ok 29 - Finance cannot confirm more than the unverified remainder
+  ---
+  duration_ms: 0.377666
+  type: 'test'
+  ...
+# Subtest: rejected payment is not eligible for refund
+ok 30 - rejected payment is not eligible for refund
+  ---
+  duration_ms: 0.222137
+  type: 'test'
+  ...
+# Subtest: rejection requires an explicit reason
+ok 31 - rejection requires an explicit reason
+  ---
+  duration_ms: 0.245141
+  type: 'test'
+  ...
+# Subtest: partially verified payment cannot be rejected wholesale
+ok 32 - partially verified payment cannot be rejected wholesale
+  ---
+  duration_ms: 0.150742
+  type: 'test'
+  ...
+# Subtest: cash handover cannot exceed verified cash held by Sales
+ok 33 - cash handover cannot exceed verified cash held by Sales
+  ---
+  duration_ms: 0.262347
+  type: 'test'
+  ...
+# Subtest: partial cash handover tracks the remaining treasury balance
+ok 34 - partial cash handover tracks the remaining treasury balance
+  ---
+  duration_ms: 0.179805
+  type: 'test'
+  ...
+# Subtest: only Finance-verified amounts can be refunded from a new payment record
+ok 35 - only Finance-verified amounts can be refunded from a new payment record
+  ---
+  duration_ms: 0.171833
+  type: 'test'
+  ...
+# Subtest: verified ticket-currency balance uses only verified portions of payments
+ok 36 - verified ticket-currency balance uses only verified portions of payments
+  ---
+  duration_ms: 0.21766
+  type: 'test'
+  ...
+# Subtest: non-cash payment cannot be recorded as a cash handover
+ok 37 - non-cash payment cannot be recorded as a cash handover
+  ---
+  duration_ms: 0.1565
+  type: 'test'
+  ...
+# Subtest: Visa verification does not require a receipt or transaction reference
+ok 38 - Visa verification does not require a receipt or transaction reference
+  ---
+  duration_ms: 0.135099
+  type: 'test'
+  ...
+# Subtest: end-to-end EUR 60 Cash flow separates Sales report, Finance verification and treasury handover
+ok 39 - end-to-end EUR 60 Cash flow separates Sales report, Finance verification and treasury handover
+  ---
+  duration_ms: 0.196018
+  type: 'test'
+  ...
+# Subtest: ticket financials keep selling and commission rates separate and apply negative EGP bonus
+ok 40 - ticket financials keep selling and commission rates separate and apply negative EGP bonus
+  ---
+  duration_ms: 0.258981
+  type: 'test'
+  ...
+# Subtest: ticket financials never produce negative final price or commission basis
+ok 41 - ticket financials never produce negative final price or commission basis
+  ---
+  duration_ms: 0.122961
+  type: 'test'
+  ...
+# Subtest: ticket financials reject positive bonus and invalid rates
+ok 42 - ticket financials reject positive bonus and invalid rates
+  ---
+  duration_ms: 0.150011
+  type: 'test'
+  ...
+# Subtest: two-person bonus reduces only commission basis, not customer ticket value
+ok 43 - two-person bonus reduces only commission basis, not customer ticket value
+  ---
+  duration_ms: 0.104154
+  type: 'test'
+  ...
+# Subtest: Accountant, Finance, and Owner can review payments; Sales and Operations cannot
+ok 44 - Accountant, Finance, and Owner can review payments; Sales and Operations cannot
+  ---
+  duration_ms: 0.17682
+  type: 'test'
+  ...
+# Subtest: Accountant payment confirmation and cash handover create an auditable receipt trail
+ok 45 - Accountant payment confirmation and cash handover create an auditable receipt trail
+  ---
+  duration_ms: 0.244821
+  type: 'test'
+  ...
+# Subtest: payment review is available to accounting, finance manager, admin and owner roles
+ok 46 - payment review is available to accounting, finance manager, admin and owner roles
+  ---
+  duration_ms: 0.168168
+  type: 'test'
+  ...
+# Subtest: QA: financial calculation rejects blank, null, zero, negative, malformed and infinite ticket totals
+ok 47 - QA: financial calculation rejects blank, null, zero, negative, malformed and infinite ticket totals
+  ---
+  duration_ms: 1.456725
+  type: 'test'
+  ...
+# Subtest: QA: financial calculation accepts positive numeric values but preserves selling/commission FX separation
+ok 48 - QA: financial calculation accepts positive numeric values but preserves selling/commission FX separation
+  ---
+  duration_ms: 0.969838
+  type: 'test'
+  ...
+# Subtest: QA: finance calculation rejects non-positive or non-finite exchange rates
+ok 49 - QA: finance calculation rejects non-positive or non-finite exchange rates
+  ---
+  duration_ms: 0.203309
+  type: 'test'
+  ...
+# Subtest: QA: commission percentage has inclusive 0 and 100 boundaries and rejects out-of-range values
+ok 50 - QA: commission percentage has inclusive 0 and 100 boundaries and rejects out-of-range values
+  ---
+  duration_ms: 0.269737
+  type: 'test'
+  ...
+# Subtest: QA: bonus cannot be positive; oversized approved bonus never makes a negative commission base
+ok 51 - QA: bonus cannot be positive; oversized approved bonus never makes a negative commission base
+  ---
+  duration_ms: 0.177171
+  type: 'test'
+  ...
+# Subtest: QA: reported amounts are converted using payment FX into ticket currency for mixed-currency payments
+ok 52 - QA: reported amounts are converted using payment FX into ticket currency for mixed-currency payments
+  ---
+  duration_ms: 0.290478
+  type: 'test'
+  ...
+# Subtest: QA: invalid ticket FX no longer silently defaults to EGP rate 1
+ok 53 - QA: invalid ticket FX no longer silently defaults to EGP rate 1
+  ---
+  duration_ms: 0.319099
+  type: 'test'
+  ...
+# Subtest: QA: verified totals ignore pending/rejected claims and count only verified amount
+ok 54 - QA: verified totals ignore pending/rejected claims and count only verified amount
+  ---
+  duration_ms: 0.271901
+  type: 'test'
+  ...
+# Subtest: QA: invalid exchange rate helper rejects all non-positive and non-finite inputs
+ok 55 - QA: invalid exchange rate helper rejects all non-positive and non-finite inputs
+  ---
+  duration_ms: 0.488329
+  type: 'test'
+  ...
+# Subtest: QA: payment verification rejects zero, negative, non-finite, blank, and over-reported amounts
+ok 56 - QA: payment verification rejects zero, negative, non-finite, blank, and over-reported amounts
+  ---
+  duration_ms: 1.408594
+  type: 'test'
+  ...
+# Subtest: QA: partial payment verification is bounded by remaining amount and adds a precise audit trail
+ok 57 - QA: partial payment verification is bounded by remaining amount and adds a precise audit trail
+  ---
+  duration_ms: 0.336696
+  type: 'test'
+  ...
+# Subtest: QA: rejected payment requires a reason and rejected partial verification is forbidden
+ok 58 - QA: rejected payment requires a reason and rejected partial verification is forbidden
+  ---
+  duration_ms: 0.331398
+  type: 'test'
+  ...
+# Subtest: QA: cash handover rejects non-cash, unverified, zero, negative, non-finite and over-limit values
+ok 59 - QA: cash handover rejects non-cash, unverified, zero, negative, non-finite and over-limit values
+  ---
+  duration_ms: 0.498744
+  type: 'test'
+  ...
+# Subtest: QA: partial handover cannot exceed cash held and records each handover independently
+ok 60 - QA: partial handover cannot exceed cash held and records each handover independently
+  ---
+  duration_ms: 0.293192
+  type: 'test'
+  ...
+# Subtest: QA: verified payment amount is always bounded by the original claimed amount
+ok 61 - QA: verified payment amount is always bounded by the original claimed amount
+  ---
+  duration_ms: 0.922939
+  type: 'test'
+  ...
+# Subtest: QA: refund cannot be equivalent to a positive amount when a rate is invalid
+ok 62 - QA: refund cannot be equivalent to a positive amount when a rate is invalid
+  ---
+  duration_ms: 0.164572
+  type: 'test'
+  ...
+# Subtest: QA: refunds remain capped to verified original payment amounts and do not include pending claims
+ok 63 - QA: refunds remain capped to verified original payment amounts and do not include pending claims
+  ---
+  duration_ms: 0.5707
+  type: 'test'
+  ...
+# Subtest: QA: partial refund is charged only against the selected original payment and cannot create a negative balance
+ok 64 - QA: partial refund is charged only against the selected original payment and cannot create a negative balance
+  ---
+  duration_ms: 0.232292
+  type: 'test'
+  ...
+# Subtest: QA: finance-only service detection catches punctuation and common abbreviation variants
+ok 65 - QA: finance-only service detection catches punctuation and common abbreviation variants
+  ---
+  duration_ms: 0.62491
+  type: 'test'
+  ...
+# Subtest: QA: demo serial allocation never returns an already-used serial and detects sequence overflow
+ok 66 - QA: demo serial allocation never returns an already-used serial and detects sequence overflow
+  ---
+  duration_ms: 0.463983
+  type: 'test'
+  ...
+# Subtest: QA: deterministic randomized financial stress cases keep price and commission non-negative
+ok 67 - QA: deterministic randomized financial stress cases keep price and commission non-negative
+  ---
+  duration_ms: 0.939073
+  type: 'test'
+  ...
+# Subtest: QA: server rate reference list includes all supported currencies
+ok 68 - QA: server rate reference list includes all supported currencies
+  ---
+  duration_ms: 0.139065
+  type: 'test'
+  ...
+# Subtest: QA: bonus approval rejects blank/non-integer/out-of-range counts and missing/oversized reasons
+ok 69 - QA: bonus approval rejects blank/non-integer/out-of-range counts and missing/oversized reasons
+  ---
+  duration_ms: 0.546484
+  type: 'test'
+  ...
+# Subtest: QA: serial range checker rejects malformed, overlapping, and already-used ranges
+ok 70 - QA: serial range checker rejects malformed, overlapping, and already-used ranges
+  ---
+  duration_ms: 0.555809
+  type: 'test'
+  ...
+1..70
+# tests 70
+# suites 0
+# pass 70
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 96.361834
