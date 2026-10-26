@@ -8,7 +8,7 @@
 
 ## Demo account examples
 
-- `omar-sales@divemore.com` → other / OT
+- `other-sales@divemore.com` → other / OT
 - `adam-sales@divemore.com` → Adam / AD
 - `ehab-sales@divemore.com` → Ehab / EH
 - `sadam-sales@divemore.com` → Sadam / SA
