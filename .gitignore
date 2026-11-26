@@ -9,3 +9,6 @@ coverage/
 release/
 *.tsbuildinfo
 build/*.log
+
+# Phase 51 API server local data (SQLite db + reset codes) — never commit
+server/data/

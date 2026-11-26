@@ -1,0 +1,33 @@
+# Dive More ERP API server — Render blueprint DRAFT (Phase 51, cloud option).
+# This file does NOT deploy anything by itself. Review names/plans in your
+# Render account first, and prefer PostgreSQL (DATABASE_URL) for production.
+# Do NOT run production SQLite on an ephemeral disk — accounts would be lost
+# on restart. If you must use SQLite, attach a persistent disk and set
+# SQLITE_PATH to a path on that disk.
+services:
+  - type: web
+    name: dive-more-erp-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "https://dive-more-erp.vercel.app"
+      - key: DATABASE_URL
+        sync: false # set your PostgreSQL connection string in the dashboard
+      - key: BOOTSTRAP_ADMIN_EMAIL
+        sync: false # set in the dashboard; used only when users table is empty
+      - key: BOOTSTRAP_ADMIN_PASSWORD
+        sync: false # set in the dashboard (8+ chars, letter + digit); never commit it
+      - key: BOOTSTRAP_ADMIN_NAME
+        value: "Dive More Owner"
+# After the API is live over HTTPS, in Vercel (project dive-more-erp):
+#   - Remove VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY
+#   - Set VITE_API_URL=https://<your-api-domain>
+#   - Redeploy, then test a real sign-in.
